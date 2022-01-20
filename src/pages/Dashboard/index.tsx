@@ -67,7 +67,6 @@ export default function Dashboard() {
 		setFoods(foodsFiltered);
 	}
 
-
 	const toggleModal = () => {
 		setModalOpen(!modalOpen);
 	}
