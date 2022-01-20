@@ -17,7 +17,7 @@ export default function ModalAddFood({ isOpen, setIsOpen, handleAddFood }: Modal
 
 	const formRef = useRef<FormHandles>(null)
 
-	const handleSubmit = async (data: IFood) => {
+	const handleSubmit = async (data: Omit<IFood, 'id' | 'available'>) => {
 		handleAddFood(data);
 		setIsOpen();
 	};

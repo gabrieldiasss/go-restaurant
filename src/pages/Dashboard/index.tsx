@@ -39,7 +39,7 @@ export default function Dashboard() {
 			console.log(err);
 		}
 	}
-
+ 
 	const handleUpdateFood = async (food: Omit<IFood, 'id' | 'available'>): Promise<void> => {
 
 		try {
