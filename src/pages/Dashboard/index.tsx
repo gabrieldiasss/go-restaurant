@@ -7,14 +7,7 @@ import ModalAddFood from '../../components/ModalAddFood';
 import ModalEditFood from '../../components/ModalEditFood';
 import { FoodsContainer } from './styles';
 
-interface IFood {
-	id: number;
-	name: string;
-	description: string;
-	price: number;
-	available: boolean;
-	image: string;
-}
+import { IFood } from '../../types';
 
 export default function Dashboard() {
 
@@ -31,9 +24,9 @@ export default function Dashboard() {
 		}
 
 		loadFoods()
-	})
+	}, [])
 
-	const handleAddFood = async (food: Omit<Food, 'id' | 'available'>): Promise<void> => {
+	const handleAddFood = async (food: Omit<IFood, 'id' | 'available'>): Promise<void> => {
 
 		try {
 			const response = await api.post('/foods', {
@@ -47,7 +40,7 @@ export default function Dashboard() {
 		}
 	}
 
-	const handleUpdateFood = async (food: Omit<Food, 'id' | 'available'>): Promise<void> => {
+	const handleUpdateFood = async (food: Omit<IFood, 'id' | 'available'>): Promise<void> => {
 
 		try {
 			const foodUpdated = await api.put(
